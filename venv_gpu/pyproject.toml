@@ -1,0 +1,39 @@
+[project]
+name = "speech_comparison"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Taein KIM", email = "sappho192@gmail.com"},
+]
+dependencies = ["torch==2.6.0+cu126", "torchaudio==2.6.0+cu126", "librosa>=0.11.0", "scikit-learn>=1.6.1", "fastparquet>=2024.11.0", "pandas>=2.2.3", "numpy>=2.2.5", "scipy>=1.15.2", "optuna>=4.3.0", "optuna-dashboard>=0.18.0", "boto3>=1.38.6", "omegaconf>=2.3.0", "loguru>=0.7.3", "tqdm>=4.67.1"]
+requires-python = "==3.10.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.resolution]
+respect-source-order = true
+# Don't let PDM install all these runtime libraries -- they add GB's of bloat!
+excludes = [
+  "nvidia-cublas-cu12",
+  "nvidia-cuda-cupti-cu12",
+  "nvidia-cuda-nvrtc-cu12",
+  "nvidia-cuda-runtime-cu12",
+  "nvidia-cudnn-cu12",
+  "nvidia-cufft-cu12",
+  "nvidia-curand-cu12",
+  "nvidia-cusolver-cu12",
+  "nvidia-cusparse-cu12",
+  "nvidia-nccl-cu12",
+  "nvidia-nvtx-cu12",
+  "triton",
+]
+
+[[tool.pdm.source]]
+name = "private"
+url = "https://download.pytorch.org/whl/cu126"
+include_packages = ["torch", "torchvision", "torchaudio"]
+exclude_packages = ["*"]

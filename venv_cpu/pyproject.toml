@@ -1,0 +1,15 @@
+[project]
+name = "speech_comparison"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Taein KIM", email = "sappho192@gmail.com"},
+]
+dependencies = ["torch==2.6.0", "torchaudio==2.6.0", "librosa>=0.11.0", "scikit-learn>=1.6.1", "fastparquet>=2024.11.0", "pandas>=2.2.3", "numpy>=2.2.5", "scipy>=1.15.2", "optuna>=4.3.0", "optuna-dashboard>=0.18.0", "boto3>=1.38.6", "omegaconf>=2.3.0", "loguru>=0.7.3", "tqdm>=4.67.1"]
+requires-python = "==3.10.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
